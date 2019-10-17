@@ -15,7 +15,16 @@ const reducer = combineReducers({
   user: userReducer
 });
 
-const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
+let store;
+
+ // Use devtools only in development.
+ // This check is required because composeDevTools is defined as dependency
+ // instead of devDependency to make deploying the whole app easier.
+if (process.env.NODE_ENV === 'development') {
+  store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
+} else {
+  store = createStore(reducer, applyMiddleware(thunk));
+}
 
 const app = (
   <Provider store={store}>
