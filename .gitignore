@@ -1,0 +1,12 @@
+# dependencies
+/node_modules
+
+# production
+/build
+
+# development
+/requests
+save-demo-content.js
+
+# misc
+.env
