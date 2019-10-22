@@ -1,15 +1,16 @@
 {
-  "name": "recipe-fullstack",
+  "name": "recipe-app-fullstack",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=production node index.js",
     "watch": "cross-env NODE_ENV=development nodemon index.js",
     "build": "cd client/ && npm install && npm run build",
     "deploy": "git push heroku master",
-    "test": "cross-env NODE_ENV=test jest --verbose --runInBand",
-    "lint": "eslint --fix ."
+    "test": "cross-env NODE_ENV=test jest --verbose --runInBand --testPathIgnorePatterns=\"client\"",
+    "test:full": "npm test && cd client/ && CI=true npm test",
+    "lint": "eslint --fix .",
+    "lint:full": "eslint --fix . && cd client/ && eslint --fix ."
   },
   "dependencies": {
     "bcrypt": "^3.0.6",
