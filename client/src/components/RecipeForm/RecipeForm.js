@@ -6,13 +6,17 @@ import TextField from '@material-ui/core/TextField';
 
 const useStyles = makeStyles(theme => ({
   container: {
-    margin: theme.spacing(5)
+    margin: theme.spacing(3),
+    [theme.breakpoints.up('sm')]: {
+      margin: 'auto',
+      width: '50%'
+    }
   },
   textField: {
     margin: theme.spacing(3),
     width: '80%'
   },
-  button: {
+  buttonContainer: {
     display: 'block',
     margin: 'auto'
   }
@@ -21,6 +25,7 @@ const useStyles = makeStyles(theme => ({
 const RecipeForm = ({
   handleSubmit,
   handleChange,
+  handleCancel,
   recipe: { title, instructions, ingredients }
 }) => {
   const classes = useStyles();
@@ -61,14 +66,18 @@ const RecipeForm = ({
           value={instructions}
           onChange={handleChange}
         />
-        <Button
-          color="primary"
-          disabled={title.length < 1 || ingredients.length < 1}
-          className={classes.button}
-          type="submit"
-        >
-          Save
-        </Button>
+        <div className={classes.buttonContainer}>
+          <Button color="primary" onClick={handleCancel}>
+            Cancel
+          </Button>
+          <Button
+            color="primary"
+            disabled={title.length < 1 || ingredients.length < 1}
+            type="submit"
+          >
+            Save
+          </Button>
+        </div>
       </form>
     </div>
   );
@@ -77,6 +86,7 @@ const RecipeForm = ({
 RecipeForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
+  handleCancel: PropTypes.func.isRequired,
   title: PropTypes.string,
   instructions: PropTypes.string,
   ingredients: PropTypes.string
