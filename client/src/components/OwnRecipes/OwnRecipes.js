@@ -11,7 +11,10 @@ import Spinner from '../ui/Spinner';
 
 const useStyles = makeStyles(theme => ({
   container: {
-    margin: theme.spacing(2)
+    margin: theme.spacing(2),
+    [theme.breakpoints.up('sm')]: {
+      margin: theme.spacing(5)
+    }
   },
   recipeLink: {
     display: 'block',
