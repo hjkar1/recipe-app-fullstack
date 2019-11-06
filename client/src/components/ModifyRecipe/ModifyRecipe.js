@@ -21,7 +21,7 @@ export const ModifyRecipe = ({
     params: { recipeId }
   }
 }) => {
-  const [recipeSubmitted, setRecipeSubmitted] = useState(false);
+  const [redirectPage, setRedirectPage] = useState(false);
 
   const [modifiedRecipe, setModifiedRecipe] = useState(null);
 
@@ -40,26 +40,29 @@ export const ModifyRecipe = ({
     setModifiedRecipe(updatedRecipe);
   };
 
+  const handleCancel = () => {
+    setRedirectPage(true);
+  };
+
   const handleSaveRecipe = event => {
     event.preventDefault();
     updateRecipe(modifiedRecipe, recipeId);
-    setRecipeSubmitted(true);
+    setRedirectPage(true);
   };
 
-  if (recipeSubmitted && !recipesError && !loading && !userError) {
+  if (redirectPage && !loading) {
     return <Redirect to="/myrecipes" />;
   }
 
   let pageContent = null;
 
-  if (loading || !modifiedRecipe) {
+  if (loading) {
     pageContent = <Spinner />;
-  } else if (!recipe || !ownRecipes.find(id => id === recipeId)) {
-    pageContent = <div>Recipe not found.</div>;
-  } else {
+  } else if (ownRecipes.find(id => id === recipeId) && modifiedRecipe) {
     pageContent = (
       <RecipeForm
         handleSubmit={handleSaveRecipe}
+        handleCancel={handleCancel}
         handleChange={handleChange}
         recipe={modifiedRecipe}
       />
