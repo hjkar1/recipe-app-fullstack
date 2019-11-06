@@ -121,6 +121,7 @@ export const Login = ({
             className={classes.submitButton}
             type="submit"
             disabled={username.length < 1 || password.length < 1}
+            data-testid="login"
           >
             Login
           </Button>

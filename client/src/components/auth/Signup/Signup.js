@@ -142,6 +142,7 @@ export const Signup = ({
           <Button
             className={classes.submitButton}
             type="submit"
+            data-testid="signup"
             disabled={
               username.length < 1 ||
               password.length < 8 ||

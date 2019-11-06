@@ -50,7 +50,7 @@ test('renders login message after signup', () => {
 });
 
 test('disables submit button if username and password are not entered correctly', () => {
-  const { getByRole, getByLabelText } = render(
+  const { getByTestId, getByLabelText } = render(
     <Login
       location={mockLocation}
       login={() => {}}
@@ -60,7 +60,7 @@ test('disables submit button if username and password are not entered correctly'
 
   const usernameInput = getByLabelText('Username');
   const passwordInput = getByLabelText('Password');
-  const loginButton = getByRole('button');
+  const loginButton = getByTestId('login');
 
   expect(loginButton).toBeDisabled();
 

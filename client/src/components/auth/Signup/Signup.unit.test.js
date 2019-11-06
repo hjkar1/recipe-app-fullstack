@@ -43,10 +43,10 @@ test('renders a spinner if loading is in progress', () => {
 });
 
 describe('test submit button', () => {
-  let usernameInput, passwordInput, passwordConfirmInput, loginButton;
+  let usernameInput, passwordInput, passwordConfirmInput, signupButton;
 
   beforeEach(() => {
-    const { getByRole, getByLabelText } = render(
+    const { getByTestId, getByLabelText } = render(
       <Signup
         signup={() => {}}
         signupClear={() => {}}
@@ -57,23 +57,23 @@ describe('test submit button', () => {
     usernameInput = getByLabelText('Username');
     passwordInput = getByLabelText('Password');
     passwordConfirmInput = getByLabelText('Retype password');
-    loginButton = getByRole('button');
+    signupButton = getByTestId('signup');
   });
 
   test('disables submit button if any required inputs are missing', () => {
-    expect(loginButton).toBeDisabled();
+    expect(signupButton).toBeDisabled();
 
     fireEvent.change(usernameInput, { target: { value: 'username' } });
 
-    expect(loginButton).toBeDisabled();
+    expect(signupButton).toBeDisabled();
 
     fireEvent.change(passwordInput, { target: { value: 'password' } });
 
-    expect(loginButton).toBeDisabled();
+    expect(signupButton).toBeDisabled();
 
     fireEvent.change(passwordConfirmInput, { target: { value: 'password' } });
 
-    expect(loginButton).not.toBeDisabled();
+    expect(signupButton).not.toBeDisabled();
   });
 
   test('disables submit button if password is inadequate', () => {
@@ -81,7 +81,7 @@ describe('test submit button', () => {
     fireEvent.change(passwordInput, { target: { value: 'passwor' } });
     fireEvent.change(passwordConfirmInput, { target: { value: 'passwor' } });
 
-    expect(loginButton).toBeDisabled();
+    expect(signupButton).toBeDisabled();
   });
 
   test('disables submit button if the two password inputs do not match', () => {
@@ -89,6 +89,6 @@ describe('test submit button', () => {
     fireEvent.change(passwordInput, { target: { value: 'password' } });
     fireEvent.change(passwordConfirmInput, { target: { value: 'passwodr' } });
 
-    expect(loginButton).toBeDisabled();
+    expect(signupButton).toBeDisabled();
   });
 });
