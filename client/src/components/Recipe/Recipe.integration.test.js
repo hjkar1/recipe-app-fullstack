@@ -14,7 +14,7 @@ jest.mock('axiosInstance');
 const mockId = { params: { recipeId: '0' } };
 
 const mockRecipe = {
-  _id: '0',
+  id: '0',
   title: 'Test title',
   ingredients: 'Test ingredients',
   instructions: 'Test instructions'

@@ -20,14 +20,14 @@ import { Route, Switch } from 'react-router-dom';
 jest.mock('axiosInstance');
 
 const originalRecipe = {
-  _id: '0',
+  id: '0',
   title: 'Test title',
   ingredients: 'Test ingredients',
   instructions: 'Test instructions'
 };
 
 const modifiedRecipe = {
-  _id: '0',
+  id: '0',
   title: 'Modified title',
   ingredients: 'Modified ingredients',
   instructions: 'Modified instructions'

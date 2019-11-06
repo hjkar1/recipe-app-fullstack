@@ -19,7 +19,7 @@ import { Route, Switch } from 'react-router-dom';
 jest.mock('axiosInstance');
 
 const createdRecipe = {
-  _id: '0',
+  id: '0',
   title: 'Test title',
   ingredients: 'Test ingredients',
   instructions: 'Test instructions'

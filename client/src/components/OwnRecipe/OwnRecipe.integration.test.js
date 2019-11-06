@@ -44,7 +44,7 @@ const mockId = { params: { recipeId: '2' } };
 const RedirectPage = () => <div>Redirected</div>;
 
 const mockRecipe = {
-  _id: '2',
+  id: '2',
   title: 'Test title',
   ingredients: 'Test ingredients',
   instructions: 'Test instructions'
