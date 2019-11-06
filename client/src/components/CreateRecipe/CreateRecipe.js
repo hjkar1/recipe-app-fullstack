@@ -8,7 +8,7 @@ import RecipeForm from '../RecipeForm/RecipeForm';
 import Spinner from '../ui/Spinner';
 
 export const CreateRecipe = ({ error, loading, createRecipe }) => {
-  const [recipeSubmitted, setRecipeSubmitted] = useState(false);
+  const [redirectPage, setRedirectPage] = useState(false);
 
   const [recipe, setRecipe] = useState({
     title: '',
@@ -25,10 +25,14 @@ export const CreateRecipe = ({ error, loading, createRecipe }) => {
   const handleSaveRecipe = event => {
     event.preventDefault();
     createRecipe(recipe);
-    setRecipeSubmitted(true);
+    setRedirectPage(true);
   };
 
-  if (recipeSubmitted && !loading && !error) {
+  const handleCancel = () => {
+    setRedirectPage(true);
+  };
+
+  if (redirectPage && !loading) {
     return <Redirect to="/myrecipes" />;
   }
 
@@ -36,13 +40,12 @@ export const CreateRecipe = ({ error, loading, createRecipe }) => {
 
   if (loading) {
     pageContent = <Spinner />;
-  } else if (error) {
-    pageContent = <div>{error}</div>;
   } else {
     pageContent = (
       <RecipeForm
         recipe={recipe}
         handleSubmit={handleSaveRecipe}
+        handleCancel={handleCancel}
         handleChange={handleChange}
       />
     );
@@ -52,6 +55,7 @@ export const CreateRecipe = ({ error, loading, createRecipe }) => {
     <Fragment>
       <TopNavBar />
       {pageContent}
+      <div>{error}</div>
     </Fragment>
   );
 };
