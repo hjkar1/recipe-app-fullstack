@@ -5,7 +5,7 @@ import { Recipe } from './Recipe';
 /* Unit tests for Recipe component. */
 
 const mockRecipe = {
-  _id: '0',
+  id: '0',
   title: 'Test title',
   ingredients: 'Test ingredients',
   instructions: 'Test instructions'
