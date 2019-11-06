@@ -38,6 +38,9 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1
   },
   active: {
+    cursor: 'default'
+  },
+  activeNav: {
     cursor: 'default',
     fontWeight: 'bold'
   },
@@ -88,7 +91,7 @@ export const TopNavBar = ({ children, logout }) => {
   const recipeManagementLinks = (
     <Fragment>
       <Link
-        activeClassName={classes.active}
+        activeClassName={classes.activeNav}
         underline="none"
         component={NavLink}
         className={classes.navLink}
@@ -97,7 +100,7 @@ export const TopNavBar = ({ children, logout }) => {
         My recipes
       </Link>
       <Link
-        activeClassName={classes.active}
+        activeClassName={classes.activeNav}
         underline="none"
         component={NavLink}
         className={classes.navLink}
