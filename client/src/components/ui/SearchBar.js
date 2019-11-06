@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import InputBase from '@material-ui/core/InputBase';
 import { fade } from '@material-ui/core/styles/colorManipulator';
@@ -17,6 +17,7 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     [theme.breakpoints.up('sm')]: {
       marginLeft: theme.spacing(1),
+      marginRight: theme.spacing(1),
       width: 'auto'
     }
   },
@@ -48,24 +49,22 @@ const useStyles = makeStyles(theme => ({
 const SearchBar = ({ searchTerms, handleChange }) => {
   const classes = useStyles();
   return (
-    <Fragment>
-      <div className={classes.search}>
-        <div className={classes.searchIcon}>
-          <SearchIcon />
-        </div>
-        <InputBase
-          id="search"
-          placeholder="Search"
-          classes={{
-            root: classes.inputRoot,
-            input: classes.inputInput
-          }}
-          inputProps={{ 'aria-label': 'Search' }}
-          value={searchTerms}
-          onChange={event => handleChange(event.target.value)}
-        />
+    <div className={classes.search}>
+      <div className={classes.searchIcon}>
+        <SearchIcon />
       </div>
-    </Fragment>
+      <InputBase
+        id="search"
+        placeholder="Search"
+        classes={{
+          root: classes.inputRoot,
+          input: classes.inputInput
+        }}
+        inputProps={{ 'aria-label': 'Search' }}
+        value={searchTerms}
+        onChange={event => handleChange(event.target.value)}
+      />
+    </div>
   );
 };
 
