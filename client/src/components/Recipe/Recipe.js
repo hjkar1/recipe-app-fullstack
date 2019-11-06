@@ -8,10 +8,15 @@ import Spinner from '../ui/Spinner';
 
 const useStyles = makeStyles(theme => ({
   container: {
-    margin: theme.spacing(2)
+    margin: theme.spacing(2),
+    [theme.breakpoints.up('sm')]: {
+      margin: 'auto',
+      width: '30%'
+    }
   },
   recipeContent: {
-    whiteSpace: 'pre-wrap'
+    whiteSpace: 'pre-wrap',
+    overflowWrap: 'break-word'
   }
 }));
 
