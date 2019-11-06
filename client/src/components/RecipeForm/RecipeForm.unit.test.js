@@ -16,6 +16,7 @@ const Wrapper = ({ recipe, onSubmit }) => {
       recipe={recipe}
       handleSubmit={onSubmit}
       handleChange={onChange}
+      handleCancel={() => {}}
     />
   );
 };
@@ -71,6 +72,7 @@ test('enables form submit only if the form contains title and ingredients', () =
       recipe={recipe1}
       handleSubmit={() => {}}
       handleChange={() => {}}
+      handleCancel={() => {}}
     />
   );
 
@@ -83,6 +85,7 @@ test('enables form submit only if the form contains title and ingredients', () =
       recipe={recipe2}
       handleSubmit={() => {}}
       handleChange={() => {}}
+      handleCancel={() => {}}
     />
   );
 
@@ -93,6 +96,7 @@ test('enables form submit only if the form contains title and ingredients', () =
       recipe={recipe3}
       handleSubmit={() => {}}
       handleChange={() => {}}
+      handleCancel={() => {}}
     />
   );
 
