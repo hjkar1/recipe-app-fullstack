@@ -1,7 +1,9 @@
 # recipe-app-fullstack
 A simple JavaScript app for displaying and searching recipes by title and ingredients. Logged in users can also create, modify and delete recipes.
 
-The app consists of Node/Express/MongoDb REST API server and a React client that uses the API. The client was created with Create React App.
+The app consists of Node/Express/MongoDb REST API server and a React client that uses the API. The client was created with Create React App and uses Redux for state management.
+
+This project combines two previous projects [recipe-app-backend](https://github.com/hjkar1/recipe-app-backend) and [recipe-app-frontend](https://github.com/hjkar1/recipe-app-frontend) as a single repo.
 ## Prerequisites
 You need to have npm and Node.js installed to run this app on your computer.
 
