@@ -1,5 +1,5 @@
 # recipe-app-fullstack
-A simple JavaScript app for displaying and searching recipes by title and ingredients. Logged in users can also create, modify and delete recipes.
+A simple JavaScript app for displaying and searching recipes by title and ingredients. Logged in users can also manage (create, modify and delete) their own recipes.
 
 The app consists of Node/Express/MongoDb REST API server and a React client that uses the API. The client was created with Create React App and uses Redux for state management.
 
