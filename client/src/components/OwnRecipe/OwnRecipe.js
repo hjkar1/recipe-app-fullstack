@@ -91,10 +91,16 @@ export const OwnRecipe = ({
       {/* The url params prop (recipeId) is passed to the recipe component. */}
       <Recipe match={match}>
         <div>
-          <Button component={Link} to={`/recipes/${recipeId}/modify`}>
+          <Button
+            component={Link}
+            to={`/recipes/${recipeId}/modify`}
+            color="primary"
+          >
             Modify recipe
           </Button>
-          <Button onClick={handleDialogOpen}>Delete recipe</Button>
+          <Button onClick={handleDialogOpen} color="primary">
+            Delete recipe
+          </Button>
         </div>
         <Fragment>
           <div>{recipesError}</div>
