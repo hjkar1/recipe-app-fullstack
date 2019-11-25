@@ -99,7 +99,11 @@ export const Recipes = ({ error, loading, recipes, getRecipes }) => {
 
   // "Show more" button is displayed only if there is more recipes to show.
   const showMoreButton = moreToShow ? (
-    <Button className={classes.showMoreButton} onClick={handleShowMore}>
+    <Button
+      className={classes.showMoreButton}
+      onClick={handleShowMore}
+      color="primary"
+    >
       Show more
     </Button>
   ) : null;
