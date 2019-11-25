@@ -2,9 +2,6 @@ import React from 'react';
 import { render } from 'utils/unit-test-utils';
 import { TopNavBar } from './TopNavBar';
 
-// Use routing to test redirect after logout.
-import { Route, Switch } from 'react-router-dom';
-
 /* Unit tests for TopNavBar component */
 
 test('renders its children', () => {
