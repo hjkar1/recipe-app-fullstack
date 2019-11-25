@@ -25,9 +25,6 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(2)
   },
   submitButton: {
-    display: 'block',
-    margin: 'auto',
-    width: '50%',
     marginTop: theme.spacing(2)
   },
   errorMessage: {
@@ -141,6 +138,7 @@ export const Signup = ({
           />
           <Button
             className={classes.submitButton}
+            color="primary"
             type="submit"
             data-testid="signup"
             disabled={
