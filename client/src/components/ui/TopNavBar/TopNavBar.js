@@ -40,6 +40,12 @@ const useStyles = makeStyles(theme => ({
   active: {
     cursor: 'default'
   },
+  activeHomepage: {
+    cursor: 'default',
+    [theme.breakpoints.down('sm')]: {
+      display: 'none'
+    }
+  },
   activeNav: {
     cursor: 'default',
     fontWeight: 'bold'
@@ -76,7 +82,7 @@ export const TopNavBar = ({ children, logout }) => {
 
   const homepageLink = (
     <Link
-      activeClassName={classes.active}
+      activeClassName={classes.activeHomepage}
       underline="none"
       color="inherit"
       variant="h6"
