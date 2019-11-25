@@ -11,31 +11,36 @@ import ModifyRecipe from './components/ModifyRecipe/ModifyRecipe';
 import OwnRecipes from './components/OwnRecipes/OwnRecipes';
 import OwnRecipe from './components/OwnRecipe/OwnRecipe';
 import PageNotFound from './components/ui/PageNotFound';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+
+const theme = createMuiTheme({ palette: { primary: { main: '#00695c' } } });
 
 const App = () => {
   return (
-    <div className="App">
-      <Switch>
-        <Route exact path="/" component={Recipes} />
-        <Route exact path="/recipes" component={Recipes} />
-        <ProtectedRoute exact path="/recipes/new" component={CreateRecipe} />
-        <Route exact path="/recipes/:recipeId" component={Recipe} />
-        <ProtectedRoute
-          exact
-          path="/recipes/:recipeId/modify"
-          component={ModifyRecipe}
-        />
-        <ProtectedRoute exact path="/myrecipes" component={OwnRecipes} />
-        <ProtectedRoute
-          exact
-          path="/myrecipes/:recipeId"
-          component={OwnRecipe}
-        />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/signup" component={Signup} />
-        <Route component={PageNotFound} />
-      </Switch>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <Switch>
+          <Route exact path="/" component={Recipes} />
+          <Route exact path="/recipes" component={Recipes} />
+          <ProtectedRoute exact path="/recipes/new" component={CreateRecipe} />
+          <Route exact path="/recipes/:recipeId" component={Recipe} />
+          <ProtectedRoute
+            exact
+            path="/recipes/:recipeId/modify"
+            component={ModifyRecipe}
+          />
+          <ProtectedRoute exact path="/myrecipes" component={OwnRecipes} />
+          <ProtectedRoute
+            exact
+            path="/myrecipes/:recipeId"
+            component={OwnRecipe}
+          />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={Signup} />
+          <Route component={PageNotFound} />
+        </Switch>
+      </div>
+    </ThemeProvider>
   );
 };
 
